@@ -9,6 +9,7 @@ import ConfirmModal from "./ConfirmModal"
 import { message } from "antd"
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons"
 import styles from "../Styles/userList.module.css";
+import { LoadingOutlined } from "@ant-design/icons";
 
 interface User {
   id: number
@@ -80,12 +81,12 @@ const UserList: React.FC = () => {
     }
   }
 
+
+
   return (
-    <>
     
-     {loading ?(
-      <div>Loading...</div>
-     ):(
+    
+    
       <>      
       <Row justify="space-between" align="middle" className={styles.header}>
         <Typography.Title level={2}>User List</Typography.Title>
@@ -107,6 +108,10 @@ const UserList: React.FC = () => {
           Card View
         </Button>
       </Row>
+
+ {loading ?(
+      <LoadingOutlined   style={{ fontSize: '70px' , alignContent : 'center', justifyContent : 'center', display : 'flex', height : '100vh', width : '100vw'}} />
+     ):( <>     
 
       {changeCardLayout ? (
         <Row gutter={[24, 24]}>
@@ -176,6 +181,8 @@ const UserList: React.FC = () => {
           pagination={{ pageSize: 5 }}
         />
       )}
+      </>
+      )}
 
       <UserModel
         id={selectedUser?.id}
@@ -194,8 +201,7 @@ const UserList: React.FC = () => {
         setIsConfirmModalOpen={setIsConfirmModalOpen}
         handleConfirm={handleConfirmDelete}
       />
-    </>
-    )}
+   
     </>
   )
 }

@@ -96,10 +96,13 @@ const userSlice = createSlice({
             if (index !== -1) {
             
                 state.user[index] = action.payload;
+
+
             }
             console.log('inside index',index);
 
             console.log('inside action',action);
+            state.loading = false;
 
 
           })
