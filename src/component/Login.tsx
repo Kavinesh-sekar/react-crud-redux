@@ -1,8 +1,6 @@
 import React, { useEffect ,useState} from 'react';
 import { Card, Space, Row, Col, Input, Button, message, Alert   } from 'antd';
 import { UserOutlined, EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import UserList from './UserList';
-import UserUpdate from './Test';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
